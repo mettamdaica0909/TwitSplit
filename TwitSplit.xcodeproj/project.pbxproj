@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D93DC44520221D0900E0E3CE /* RSKGrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93DC44420221D0900E0E3CE /* RSKGrowingTextView.swift */; };
+		D93DC44720221D2100E0E3CE /* RSKPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93DC44620221D2100E0E3CE /* RSKPlaceholderTextView.swift */; };
 		D9A34451202077B5002602EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A34450202077B5002602EE /* AppDelegate.swift */; };
 		D9A34453202077B5002602EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A34452202077B5002602EE /* ViewController.swift */; };
 		D9A34456202077B5002602EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A34454202077B5002602EE /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D93DC44420221D0900E0E3CE /* RSKGrowingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSKGrowingTextView.swift; sourceTree = "<group>"; };
+		D93DC44620221D2100E0E3CE /* RSKPlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSKPlaceholderTextView.swift; sourceTree = "<group>"; };
 		D9A3444D202077B5002602EE /* TwitSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A34450202077B5002602EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9A34452202077B5002602EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D93DC43A20221B7700E0E3CE /* RSKGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				D93DC44420221D0900E0E3CE /* RSKGrowingTextView.swift */,
+				D93DC44620221D2100E0E3CE /* RSKPlaceholderTextView.swift */,
+			);
+			path = RSKGrowingTextView;
+			sourceTree = "<group>";
+		};
 		D9A34444202077B5002602EE = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +90,7 @@
 		D9A3444F202077B5002602EE /* TwitSplit */ = {
 			isa = PBXGroup;
 			children = (
+				D93DC43A20221B7700E0E3CE /* RSKGrowingTextView */,
 				D9A34450202077B5002602EE /* AppDelegate.swift */,
 				D9A34452202077B5002602EE /* ViewController.swift */,
 				D9A34454202077B5002602EE /* Main.storyboard */,
@@ -200,6 +214,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A34453202077B5002602EE /* ViewController.swift in Sources */,
+				D93DC44520221D0900E0E3CE /* RSKGrowingTextView.swift in Sources */,
+				D93DC44720221D2100E0E3CE /* RSKPlaceholderTextView.swift in Sources */,
 				D9A34451202077B5002602EE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
