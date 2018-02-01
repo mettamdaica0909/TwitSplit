@@ -26,6 +26,9 @@ class ViewController: UIViewController {
         // setup inputTextview
         inputTextView.placeholder = "Enter text here....."
         inputTextView.layer.cornerRadius = 5
+        
+        // add dismiss keyboard gesture
+        self.view.addDismissKeyboardGesture()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +38,7 @@ class ViewController: UIViewController {
 
     @objc func keyboardWillShow(notification: NSNotification) {
         var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         inputTextViewBottomConstraint.constant = keyboardFrame.size.height + 10
         UIView.animate(withDuration: 0.2, animations: {
@@ -45,7 +48,7 @@ class ViewController: UIViewController {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        inputTextViewBottomConstraint.constant = 0
+        inputTextViewBottomConstraint.constant = 10
         self.view.layoutIfNeeded()
     }
 }
