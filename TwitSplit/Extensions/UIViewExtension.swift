@@ -1,5 +1,5 @@
 //
-//  UIView.swift
+//  UIViewExtension.swift
 //  TwitSplit
 //
 //  Created by Mettamdaica on 2/1/18.

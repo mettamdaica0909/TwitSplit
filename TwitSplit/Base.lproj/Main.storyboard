@@ -18,9 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="piK-gC-qSA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="piK-gC-qSA">
+                                <rect key="frame" x="0.0" y="20" width="375" height="567"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3hG-BA-s7Q"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XKM-I0-Yml"/>
+                                </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aYO-zz-djB" customClass="RSKGrowingTextView" customModule="TwitSplit" customModuleProvider="target">
                                 <rect key="frame" x="10" y="597" width="305" height="60"/>
@@ -38,6 +42,9 @@
                                     <constraint firstAttribute="width" constant="36" id="721-hr-xGE"/>
                                 </constraints>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="btnSend:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vSW-dl-dii"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,7 +55,7 @@
                             <constraint firstAttribute="trailing" secondItem="f8w-3U-WA3" secondAttribute="trailing" constant="8" id="cyC-u7-86B"/>
                             <constraint firstItem="aYO-zz-djB" firstAttribute="top" secondItem="piK-gC-qSA" secondAttribute="bottom" constant="10" id="is5-IU-awv"/>
                             <constraint firstItem="f8w-3U-WA3" firstAttribute="baseline" secondItem="aYO-zz-djB" secondAttribute="baseline" constant="-10" id="unf-cP-FNL"/>
-                            <constraint firstItem="piK-gC-qSA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ybo-xf-XqT"/>
+                            <constraint firstItem="piK-gC-qSA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="ybo-xf-XqT"/>
                             <constraint firstItem="piK-gC-qSA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="yuZ-9H-dod"/>
                             <constraint firstAttribute="bottom" secondItem="aYO-zz-djB" secondAttribute="bottom" constant="10" id="zK0-8v-h0d"/>
                         </constraints>
@@ -57,6 +64,7 @@
                     <connections>
                         <outlet property="inputTextView" destination="aYO-zz-djB" id="IT5-IE-AjB"/>
                         <outlet property="inputTextViewBottomConstraint" destination="zK0-8v-h0d" id="2IP-fC-El7"/>
+                        <outlet property="tableview" destination="piK-gC-qSA" id="ZSP-so-bBV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
