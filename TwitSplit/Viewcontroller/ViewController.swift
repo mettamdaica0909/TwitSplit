@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -34,11 +35,16 @@ class ViewController: UIViewController {
         tableview.register(cellNib, forCellReuseIdentifier: MessageTableViewCell.cellID)
         tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 72
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        // reload data from coredata
+        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
+        do {
+            let message = try PersistenService.context.fetch(fetchRequest)
+            for message in message {
+                self.chunks.append(message.chunk!)
+                self.tableview.reloadData()
+            }
+        } catch {}
     }
 
     // MARK: Keyboard
@@ -77,7 +83,14 @@ class ViewController: UIViewController {
         // clear text view and split message in background thread to improve performance
         self.inputTextView.text = ""
         DispatchQueue.global().async {
-            self.chunks += self.splitMessage(inputMessage: inputMessage)
+            let splitedChunks = self.splitMessage(inputMessage: inputMessage)
+            // save splited message
+            for chunk in splitedChunks {
+                let message = Message(context: PersistenService.context)
+                message.chunk = chunk
+                PersistenService.saveContext()
+            }
+            self.chunks += splitedChunks
             DispatchQueue.main.async {
                 self.tableview.reloadData()
                 // Move to bottom of tableview

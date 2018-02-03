@@ -14,6 +14,10 @@
 		D95A1D5B2023008100A2A566 /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D95A1D5A2023008100A2A566 /* avatar.jpg */; };
 		D95FE58220244D9A0093687F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FE58120244D9A0093687F /* StringExtension.swift */; };
 		D9818FBB2022F87F003A5F76 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9818FBA2022F87F003A5F76 /* UIViewExtension.swift */; };
+		D9871A4820259B9200354020 /* TwitSplit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9871A4620259B9200354020 /* TwitSplit.xcdatamodeld */; };
+		D9871A4A20259BC800354020 /* PersistenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A4920259BC800354020 /* PersistenService.swift */; };
+		D9871A6E20259DE300354020 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A6C20259DE300354020 /* Message+CoreDataClass.swift */; };
+		D9871A6F20259DE300354020 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A6D20259DE300354020 /* Message+CoreDataProperties.swift */; };
 		D9A34451202077B5002602EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A34450202077B5002602EE /* AppDelegate.swift */; };
 		D9A34453202077B5002602EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A34452202077B5002602EE /* ViewController.swift */; };
 		D9A34456202077B5002602EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A34454202077B5002602EE /* Main.storyboard */; };
@@ -40,6 +44,10 @@
 		D95A1D5A2023008100A2A566 /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
 		D95FE58120244D9A0093687F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D9818FBA2022F87F003A5F76 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		D9871A4720259B9200354020 /* TwitSplit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitSplit.xcdatamodel; sourceTree = "<group>"; };
+		D9871A4920259BC800354020 /* PersistenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenService.swift; sourceTree = "<group>"; };
+		D9871A6C20259DE300354020 /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D9871A6D20259DE300354020 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D9A3444D202077B5002602EE /* TwitSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A34450202077B5002602EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9A34452202077B5002602EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +121,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D9871A4520259B6C00354020 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D9871A4620259B9200354020 /* TwitSplit.xcdatamodeld */,
+				D9871A4920259BC800354020 /* PersistenService.swift */,
+				D9871A6C20259DE300354020 /* Message+CoreDataClass.swift */,
+				D9871A6D20259DE300354020 /* Message+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		D9A34444202077B5002602EE = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +153,7 @@
 		D9A3444F202077B5002602EE /* TwitSplit */ = {
 			isa = PBXGroup;
 			children = (
+				D9871A4520259B6C00354020 /* CoreData */,
 				D95A1D592023006800A2A566 /* Resources */,
 				D95A1D542023000D00A2A566 /* View */,
 				D95A1D532022FFE900A2A566 /* Viewcontroller */,
@@ -262,13 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9871A6F20259DE300354020 /* Message+CoreDataProperties.swift in Sources */,
 				D9818FBB2022F87F003A5F76 /* UIViewExtension.swift in Sources */,
 				D95FE58220244D9A0093687F /* StringExtension.swift in Sources */,
+				D9871A4820259B9200354020 /* TwitSplit.xcdatamodeld in Sources */,
 				D9A34453202077B5002602EE /* ViewController.swift in Sources */,
 				D93DC44520221D0900E0E3CE /* RSKGrowingTextView.swift in Sources */,
 				D93DC44720221D2100E0E3CE /* RSKPlaceholderTextView.swift in Sources */,
 				D9A34451202077B5002602EE /* AppDelegate.swift in Sources */,
 				D95A1D572023002700A2A566 /* MessageTableViewCell.swift in Sources */,
+				D9871A4A20259BC800354020 /* PersistenService.swift in Sources */,
+				D9871A6E20259DE300354020 /* Message+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +532,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D9871A4620259B9200354020 /* TwitSplit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D9871A4720259B9200354020 /* TwitSplit.xcdatamodel */,
+			);
+			currentVersion = D9871A4720259B9200354020 /* TwitSplit.xcdatamodel */;
+			path = TwitSplit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D9A34445202077B5002602EE /* Project object */;
 }
