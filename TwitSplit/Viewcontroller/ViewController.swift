@@ -74,12 +74,17 @@ class ViewController: UIViewController {
             return
         }
         
-        chunks += splitMessage(inputMessage: inputTextView.text)
-        inputTextView.text = ""
-        tableview.reloadData()
-        // Move to bottom of tableview
-        let indexPath = NSIndexPath(row: chunks.count - 1, section: 0)
-        tableview.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+        // clear text view and split message in background thread to improve performance
+        self.inputTextView.text = ""
+        DispatchQueue.global().async {
+            self.chunks += self.splitMessage(inputMessage: inputMessage)
+            DispatchQueue.main.async {
+                self.tableview.reloadData()
+                // Move to bottom of tableview
+                let indexPath = NSIndexPath(row: self.chunks.count - 1, section: 0)
+                self.tableview.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+            }
+        }
     }
     
     // MARK: Split message
@@ -92,7 +97,7 @@ class ViewController: UIViewController {
         var numberOfChunk = Int(round(Double(Double(inputMessage.count)/50)))
         // start split message with estimate numberOfChunk. If the message can not be splited try again with numberOfChunk+1
         var chunks = splitWith(message: inputMessage, numberOfChunk: numberOfChunk)
-        if chunks.count == 0 {
+        while (chunks.count == 0) {
             numberOfChunk += 1
             chunks = splitWith(message: inputMessage, numberOfChunk: numberOfChunk)
         }
@@ -120,6 +125,7 @@ class ViewController: UIViewController {
                     break
                 }
             }
+            print(chunk.count,chunk)
             chunks.append(chunk)
         }
         
