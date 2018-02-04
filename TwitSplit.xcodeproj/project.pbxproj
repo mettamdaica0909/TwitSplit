@@ -18,6 +18,7 @@
 		D9871A4A20259BC800354020 /* PersistenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A4920259BC800354020 /* PersistenService.swift */; };
 		D9871A6E20259DE300354020 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A6C20259DE300354020 /* Message+CoreDataClass.swift */; };
 		D9871A6F20259DE300354020 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A6D20259DE300354020 /* Message+CoreDataProperties.swift */; };
+		D9871A722026B74200354020 /* MessageSplitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A712026B74200354020 /* MessageSplitManager.swift */; };
 		D9A34451202077B5002602EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A34450202077B5002602EE /* AppDelegate.swift */; };
 		D9A34453202077B5002602EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A34452202077B5002602EE /* ViewController.swift */; };
 		D9A34456202077B5002602EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A34454202077B5002602EE /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		D9871A4920259BC800354020 /* PersistenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenService.swift; sourceTree = "<group>"; };
 		D9871A6C20259DE300354020 /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D9871A6D20259DE300354020 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D9871A712026B74200354020 /* MessageSplitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSplitManager.swift; sourceTree = "<group>"; };
 		D9A3444D202077B5002602EE /* TwitSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A34450202077B5002602EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9A34452202077B5002602EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,15 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		D9871A702026B66800354020 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				D9A34454202077B5002602EE /* Main.storyboard */,
+				D9A34459202077B5002602EE /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		D9A34444202077B5002602EE = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +164,8 @@
 		D9A3444F202077B5002602EE /* TwitSplit */ = {
 			isa = PBXGroup;
 			children = (
+				D9871A712026B74200354020 /* MessageSplitManager.swift */,
+				D9871A702026B66800354020 /* Storyboard */,
 				D9871A4520259B6C00354020 /* CoreData */,
 				D95A1D592023006800A2A566 /* Resources */,
 				D95A1D542023000D00A2A566 /* View */,
@@ -160,9 +173,7 @@
 				D9818FB92022F867003A5F76 /* Extensions */,
 				D93DC43A20221B7700E0E3CE /* RSKGrowingTextView */,
 				D9A34450202077B5002602EE /* AppDelegate.swift */,
-				D9A34454202077B5002602EE /* Main.storyboard */,
 				D9A34457202077B5002602EE /* Assets.xcassets */,
-				D9A34459202077B5002602EE /* LaunchScreen.storyboard */,
 				D9A3445C202077B5002602EE /* Info.plist */,
 			);
 			path = TwitSplit;
@@ -286,6 +297,7 @@
 				D9818FBB2022F87F003A5F76 /* UIViewExtension.swift in Sources */,
 				D95FE58220244D9A0093687F /* StringExtension.swift in Sources */,
 				D9871A4820259B9200354020 /* TwitSplit.xcdatamodeld in Sources */,
+				D9871A722026B74200354020 /* MessageSplitManager.swift in Sources */,
 				D9A34453202077B5002602EE /* ViewController.swift in Sources */,
 				D93DC44520221D0900E0E3CE /* RSKGrowingTextView.swift in Sources */,
 				D93DC44720221D2100E0E3CE /* RSKPlaceholderTextView.swift in Sources */,
