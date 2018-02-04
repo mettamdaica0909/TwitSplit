@@ -10,7 +10,7 @@ import Foundation
 
 class MessageSpitManager {        
     // MARK: Split message
-    func splitMessage(inputMessage: String) -> [String] {
+    static func splitMessage(inputMessage: String) -> [String] {
         // if input string length < 50 -> return
         if inputMessage.count < 50 {
             return [inputMessage]
@@ -26,7 +26,7 @@ class MessageSpitManager {
         return chunks
     }
     
-    func splitWith(message : String, numberOfChunk : Int) -> [String] {
+    static func splitWith(message : String, numberOfChunk : Int) -> [String] {
         var chunks = [String]()
         // Messages will only be split on whitespace
         var inputMessageArr = message.split(separator: " ")

@@ -9,26 +9,20 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
 
     @IBOutlet weak var inputTextView: RSKGrowingTextView!
     @IBOutlet weak var inputTextViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableview: UITableView!
     fileprivate var chunks: [String] = []
     
+    // MARK: life cycle
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Register Keyboard Notification
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        super.viewDidLoad()                
         
         // setup inputTextview
-        inputTextView.placeholder = "Enter text here....."
-        inputTextView.layer.cornerRadius = 5
-        
-        // add dismiss keyboard gesture
-        self.view.addDismissKeyboardGesture()
+        inputTextView.placeholder = Constant.textViewPlaceholder as NSString
+        inputTextView.layer.cornerRadius = 5                
         
         // setup tableview
         let cellNib = UINib(nibName: MessageTableViewCell.cellID, bundle: nil)
@@ -48,7 +42,7 @@ class ViewController: UIViewController {
     }
 
     // MARK: Keyboard
-    @objc func keyboardWillShow(notification: NSNotification) {
+    override func keyboardWillShow(notification: NSNotification) {
         var userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
@@ -59,7 +53,7 @@ class ViewController: UIViewController {
 
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
+    override func keyboardWillHide(notification: NSNotification) {
         inputTextViewBottomConstraint.constant = 10
         self.view.layoutIfNeeded()
     }
@@ -74,8 +68,7 @@ class ViewController: UIViewController {
         
         // display error if the message contains a span of non-whitespace characters longer than 50 characters
         if !inputMessage.isInputMessageValid() {
-            let alert = UIAlertController(title: "Please try again", message: "The message contains a span of non-whitespace characters longer than 50 characters.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+            let alert = UIAlertHepler.alertController(title: Constant.invalidMessageAlertTitle, message: Constant.invalidMessageAlertMessage, cancel: "OK", others: nil, handleAction: nil)
             self.present(alert, animated: true, completion: nil)
             return
         }
@@ -83,7 +76,7 @@ class ViewController: UIViewController {
         // clear text view and split message in background thread to improve performance
         self.inputTextView.text = ""
         DispatchQueue.global().async {
-            let splitedChunks = MessageSpitManager.init().splitMessage(inputMessage: inputMessage)
+            let splitedChunks = MessageSpitManager.splitMessage(inputMessage: inputMessage)
             // save splited message
             for chunk in splitedChunks {
                 let message = Message(context: PersistenService.context)
