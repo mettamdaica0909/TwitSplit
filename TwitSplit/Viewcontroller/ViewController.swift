@@ -59,37 +59,33 @@ class ViewController: BaseViewController {
     }
     
     @IBAction func btnSend(_ sender: Any) {
-        // remove whitespace from beggin and end of message
-        let inputMessage = inputTextView.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        if inputMessage.isEmpty {
+        switch MessageManager.isMessageValid(message: inputTextView.text) {
+        case .invalidCharacter:
             inputTextView.text = ""
             return
-        }
-        
-        // display error if the message contains a span of non-whitespace characters longer than 50 characters
-        if !inputMessage.isInputMessageValid() {
+        case .invalidLength:
             let alert = UIAlertHepler.alertController(title: Constant.invalidMessageAlertTitle, message: Constant.invalidMessageAlertMessage, cancel: "OK", others: nil, handleAction: nil)
             self.present(alert, animated: true, completion: nil)
             return
-        }
-        
-        // clear text view and split message in background thread to improve performance
-        self.inputTextView.text = ""
-        DispatchQueue.global().async {
-            let splitedChunks = MessageSpitManager.splitMessage(inputMessage: inputMessage)
-            // save splited message
-            for chunk in splitedChunks {
-                let message = Message(context: PersistenService.context)
-                message.chunk = chunk
-                PersistenService.saveContext()
-            }
-            self.chunks += splitedChunks
-            
-            DispatchQueue.main.async {
-                self.tableview.reloadData()
-                // Move to bottom of tableview
-                let indexPath = NSIndexPath(row: self.chunks.count - 1, section: 0)
-                self.tableview.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+        case .valid:
+            // clear text view and split message in background thread
+            self.inputTextView.text = ""
+            DispatchQueue.global().async {
+                let splitedChunks = MessageManager.splitMessage(inputMessage: self.inputTextView.text)
+                // save splited message
+                for chunk in splitedChunks {
+                    let message = Message(context: PersistenService.context)
+                    message.chunk = chunk
+                    PersistenService.saveContext()
+                }
+                self.chunks += splitedChunks
+                
+                DispatchQueue.main.async {
+                    self.tableview.reloadData()
+                    // Move to bottom of tableview
+                    let indexPath = NSIndexPath(row: self.chunks.count - 1, section: 0)
+                    self.tableview.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+                }
             }
         }
     }

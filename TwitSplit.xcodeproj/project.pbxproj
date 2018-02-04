@@ -12,13 +12,12 @@
 		D95A1D572023002700A2A566 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95A1D552023002700A2A566 /* MessageTableViewCell.swift */; };
 		D95A1D582023002700A2A566 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95A1D562023002700A2A566 /* MessageTableViewCell.xib */; };
 		D95A1D5B2023008100A2A566 /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D95A1D5A2023008100A2A566 /* avatar.jpg */; };
-		D95FE58220244D9A0093687F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FE58120244D9A0093687F /* StringExtension.swift */; };
 		D9818FBB2022F87F003A5F76 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9818FBA2022F87F003A5F76 /* UIViewExtension.swift */; };
 		D9871A4820259B9200354020 /* TwitSplit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9871A4620259B9200354020 /* TwitSplit.xcdatamodeld */; };
 		D9871A4A20259BC800354020 /* PersistenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A4920259BC800354020 /* PersistenService.swift */; };
 		D9871A6E20259DE300354020 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A6C20259DE300354020 /* Message+CoreDataClass.swift */; };
 		D9871A6F20259DE300354020 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A6D20259DE300354020 /* Message+CoreDataProperties.swift */; };
-		D9871A722026B74200354020 /* MessageSplitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A712026B74200354020 /* MessageSplitManager.swift */; };
+		D9871A722026B74200354020 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A712026B74200354020 /* MessageManager.swift */; };
 		D9871A762026BD4E00354020 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A752026BD4E00354020 /* Constant.swift */; };
 		D9871A782026BE4A00354020 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A772026BE4A00354020 /* BaseViewController.swift */; };
 		D9871A7B2026C02000354020 /* UIAlertHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9871A7A2026C02000354020 /* UIAlertHepler.swift */; };
@@ -46,13 +45,12 @@
 		D95A1D552023002700A2A566 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		D95A1D562023002700A2A566 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		D95A1D5A2023008100A2A566 /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
-		D95FE58120244D9A0093687F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D9818FBA2022F87F003A5F76 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		D9871A4720259B9200354020 /* TwitSplit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitSplit.xcdatamodel; sourceTree = "<group>"; };
 		D9871A4920259BC800354020 /* PersistenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenService.swift; sourceTree = "<group>"; };
 		D9871A6C20259DE300354020 /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D9871A6D20259DE300354020 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D9871A712026B74200354020 /* MessageSplitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSplitManager.swift; sourceTree = "<group>"; };
+		D9871A712026B74200354020 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		D9871A752026BD4E00354020 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D9871A772026BE4A00354020 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D9871A7A2026C02000354020 /* UIAlertHepler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertHepler.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				D9818FBA2022F87F003A5F76 /* UIViewExtension.swift */,
-				D95FE58120244D9A0093687F /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -153,7 +150,7 @@
 		D9871A732026BC3400354020 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				D9871A712026B74200354020 /* MessageSplitManager.swift */,
+				D9871A712026B74200354020 /* MessageManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -328,9 +325,8 @@
 			files = (
 				D9871A6F20259DE300354020 /* Message+CoreDataProperties.swift in Sources */,
 				D9818FBB2022F87F003A5F76 /* UIViewExtension.swift in Sources */,
-				D95FE58220244D9A0093687F /* StringExtension.swift in Sources */,
 				D9871A4820259B9200354020 /* TwitSplit.xcdatamodeld in Sources */,
-				D9871A722026B74200354020 /* MessageSplitManager.swift in Sources */,
+				D9871A722026B74200354020 /* MessageManager.swift in Sources */,
 				D9871A782026BE4A00354020 /* BaseViewController.swift in Sources */,
 				D9A34453202077B5002602EE /* ViewController.swift in Sources */,
 				D93DC44520221D0900E0E3CE /* RSKGrowingTextView.swift in Sources */,

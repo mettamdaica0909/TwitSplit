@@ -21,6 +21,11 @@ class BaseViewController: UIViewController {
         self.view.addDismissKeyboardGesture()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         //MARK: - Overridding
     }
