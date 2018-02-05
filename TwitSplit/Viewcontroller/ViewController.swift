@@ -69,9 +69,12 @@ class ViewController: BaseViewController {
             return
         case .valid:
             // clear text view and split message in background thread
+            guard let inputText = self.inputTextView.text else {
+                return
+            }
             self.inputTextView.text = ""
             DispatchQueue.global().async {
-                let splitedChunks = MessageManager.splitMessage(inputMessage: self.inputTextView.text)
+                let splitedChunks = MessageManager.splitMessage(inputMessage: inputText)
                 // save splited message
                 for chunk in splitedChunks {
                     let message = Message(context: PersistenService.context)
